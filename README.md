@@ -68,6 +68,15 @@ Watch PHP route and view files for Tailwind class changes:
 yarn tailwind:watch
 ```
 
+## cPanel / Apache Hosting
+
+The project includes a root `.htaccess` for cPanel-style Apache hosting.
+
+- Upload the project so `index.php`, `.htaccess`, `app/`, `routes/`, and `public/` are in the same document root.
+- Static files inside `public/` are served from the site root. For example, `public/assets/css/app.css` loads from `/assets/css/app.css`.
+- Web routes such as `/overview` are rewritten to `index.php`.
+- Private folders such as `app/`, `settings/`, `vendor/`, `resources/`, and `.env` are blocked from direct browser access.
+
 ## Project Structure
 
 ```text
