@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source "../../routes";
 @source "../../resources";
 @source "../../app/helpers";

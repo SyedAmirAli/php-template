@@ -36,3 +36,5 @@ bun.lockb
 *.swo
 .DS_Store
 Thumbs.db
+
+/zunk

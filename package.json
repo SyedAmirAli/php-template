@@ -2,13 +2,18 @@
     "name": "php-template",
     "private": true,
     "scripts": {
-        "dev": "concurrently --kill-others-on-fail -n tailwind,php -c cyan,green \"yarn tailwind:watch\" \"php -S localhost:8173 server.php\"",
+        "dev": "concurrently --kill-others-on-fail -n tailwind,php,browser -c cyan,green,magenta \"yarn tailwind:watch\" \"yarn php:serve\" \"yarn browser:sync\"",
+        "php:serve": "php -S localhost:8173 server.php",
+        "browser:sync": "wait-on tcp:8173 && browser-sync start --proxy localhost:8173 --port 3000 --files \"routes/**/*.php,resources/**/*.php,app/helpers/**/*.php,app/controllers/**/*.php,public/assets/css/**/*.css\" --no-open --no-notify",
         "tailwind:build": "tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css",
-        "tailwind:watch": "tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css --watch=always"
+        "tailwind:watch": "tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css --watch=always",
+        "build": "yarn tailwind:build"
     },
     "devDependencies": {
         "@tailwindcss/cli": "latest",
+        "browser-sync": "latest",
         "concurrently": "latest",
-        "tailwindcss": "latest"
+        "tailwindcss": "latest",
+        "wait-on": "latest"
     }
 }

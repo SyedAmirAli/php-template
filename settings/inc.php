@@ -5,8 +5,12 @@ require_once __DIR__ . '/constants.php';
 // load vendor files
 $autoloadPath = BASE_DIR . '/vendor/autoload.php';
 
-if (!file_exists($autoloadPath)) {
+if (!is_file($autoloadPath) && is_file(PACKAGE_DIR . '/vendor/autoload.php')) {
     $autoloadPath = PACKAGE_DIR . '/vendor/autoload.php';
+}
+
+if (!is_file($autoloadPath)) {
+    throw new RuntimeException('Composer autoload file not found. Run `composer install` from ' . BASE_DIR . '.');
 }
 
 require_once $autoloadPath;

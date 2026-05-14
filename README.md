@@ -28,10 +28,32 @@ Install Node dependencies for Tailwind CSS:
 yarn install
 ```
 
-Run the PHP server and Tailwind watcher together:
+Run the PHP server, Tailwind watcher, and browser live reload together:
 
 ```bash
 yarn dev
+```
+
+Open the live-reload URL in your browser:
+
+```text
+http://localhost:3000
+```
+
+The PHP server still runs behind it at:
+
+```text
+http://localhost:8173
+```
+
+BrowserSync proxies the PHP server and reloads when these files change:
+
+```text
+routes/**/*.php
+resources/**/*.php
+app/helpers/**/*.php
+app/controllers/**/*.php
+public/assets/css/**/*.css
 ```
 
 Compile Tailwind once:
@@ -279,11 +301,15 @@ It imports Tailwind and explicitly scans PHP folders where route/view classes ar
 ```css
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source "../../routes";
 @source "../../resources";
 @source "../../app/helpers";
 @source "../../app/controllers";
 ```
+
+Dark mode is class-based. Rendered pages use `class="light"` by default on the `<html>` element, so the light theme is the default. Add or switch to a `dark` class on `<html>` to activate `dark:` utilities.
 
 The compiled output file is:
 
@@ -294,7 +320,7 @@ public/assets/css/app.css
 The web route uses `App\Helpers\Template`, which links the compiled stylesheet with:
 
 ```html
-<link rel="stylesheet" href="/public/assets/css/app.css">
+<link rel="stylesheet" href="/assets/css/app.css">
 ```
 
 When you edit Tailwind classes in `routes/web.php`, keep `yarn tailwind:watch` running so the compiled CSS updates automatically.
