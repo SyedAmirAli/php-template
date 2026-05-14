@@ -30,12 +30,6 @@ Start dev mode:
 yarn dev
 ```
 
-Open the app in your browser:
-
-```text
-http://localhost:3000
-```
-
 `yarn dev` runs the PHP server, Tailwind watcher, and BrowserSync live reload together. The PHP server still runs behind BrowserSync at:
 
 ```text
@@ -68,10 +62,10 @@ yarn tailwind:watch
 
 The project includes a root `.htaccess` for cPanel-style Apache hosting.
 
-- Upload the project so `index.php`, `.htaccess`, `app/`, `routes/`, and `public/` are in the same document root.
-- Static files inside `public/` are served from the site root. For example, `public/assets/css/app.css` loads from `/assets/css/app.css`.
-- Web routes such as `/overview` are rewritten to `index.php`.
-- Private folders such as `app/`, `settings/`, `vendor/`, `resources/`, and `.env` are blocked from direct browser access.
+-   Upload the project so `index.php`, `.htaccess`, `app/`, `routes/`, and `public/` are in the same document root.
+-   Static files inside `public/` are served from the site root. For example, `public/assets/css/app.css` loads from `/assets/css/app.css`.
+-   Web routes such as `/overview` are rewritten to `index.php`.
+-   Private folders such as `app/`, `settings/`, `vendor/`, `resources/`, and `.env` are blocked from direct browser access.
 
 ## Project Structure
 
@@ -325,7 +319,7 @@ public/assets/css/app.css
 The web route uses `App\Helpers\Template`, which links the compiled stylesheet with:
 
 ```html
-<link rel="stylesheet" href="/assets/css/app.css">
+<link rel="stylesheet" href="/assets/css/app.css" />
 ```
 
 When you edit Tailwind classes in `routes/web.php`, keep `yarn tailwind:watch` running so the compiled CSS updates automatically.
@@ -345,10 +339,10 @@ GET  /api/test
 
 Notes:
 
-- `/api/register` uses `Authenticator::register($request->all())`.
-- `/api/login` uses `Authenticator::login($request->body)`.
-- `/api/user/:id` loads the user, roles, and menu hierarchy.
-- Routes after `Authenticator::validateToken(Request::getToken())` require a valid bearer token before they can be reached.
+-   `/api/register` uses `Authenticator::register($request->all())`.
+-   `/api/login` uses `Authenticator::login($request->body)`.
+-   `/api/user/:id` loads the user, roles, and menu hierarchy.
+-   Routes after `Authenticator::validateToken(Request::getToken())` require a valid bearer token before they can be reached.
 
 ## Authentication Token
 
@@ -488,9 +482,9 @@ GET /contact
 
 ## Important Notes
 
-- API routes are prefixed automatically with `/api`.
-- Route paths are matched by HTTP method and normalized without trailing slashes.
-- Dynamic parameters use `:param` syntax, not `{param}` syntax.
-- The first route callback argument should be `Request $request` when you need request data or route parameters.
-- API route return values should normally be arrays or objects so the router can send JSON.
-- Web route return values are sent directly as HTML/text.
+-   API routes are prefixed automatically with `/api`.
+-   Route paths are matched by HTTP method and normalized without trailing slashes.
+-   Dynamic parameters use `:param` syntax, not `{param}` syntax.
+-   The first route callback argument should be `Request $request` when you need request data or route parameters.
+-   API route return values should normally be arrays or objects so the router can send JSON.
+-   Web route return values are sent directly as HTML/text.
