@@ -6,3 +6,43 @@
 @source "../../resources";
 @source "../../app/helpers";
 @source "../../app/controllers";
+
+.markdown-preview h1 {
+    @apply mt-0 mb-6 text-4xl font-black tracking-tight text-slate-950;
+}
+
+.markdown-preview h2 {
+    @apply mt-10 mb-4 border-b border-slate-200 pb-3 text-2xl font-bold text-slate-900;
+}
+
+.markdown-preview h3 {
+    @apply mt-8 mb-3 text-xl font-bold text-slate-900;
+}
+
+.markdown-preview p {
+    @apply my-4 leading-7 text-slate-700;
+}
+
+.markdown-preview ul {
+    @apply my-4 list-disc space-y-2 pl-6 text-slate-700;
+}
+
+.markdown-preview ol {
+    @apply my-4 list-decimal space-y-2 pl-6 text-slate-700;
+}
+
+.markdown-preview code:not(pre code) {
+    @apply rounded bg-slate-100 px-1.5 py-0.5 text-sm font-semibold text-rose-700;
+}
+
+.markdown-preview pre {
+    @apply my-5 overflow-x-auto rounded-xl bg-slate-950 p-5 text-sm text-slate-100 shadow-inner;
+}
+
+.markdown-preview a {
+    @apply font-semibold text-blue-600 underline underline-offset-4;
+}
+
+.markdown-preview strong {
+    @apply font-bold text-slate-950;
+}
