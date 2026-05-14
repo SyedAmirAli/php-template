@@ -2,45 +2,41 @@
 
 A small custom PHP MVC-style template with file-based route definitions, simple request handling, JSON API responses, environment-driven configuration, and Eloquent-style models.
 
-## Installation
+## Development Setup
 
-Install PHP dependencies with Composer:
+Install PHP dependencies:
 
 ```bash
 composer install
 ```
 
-Start the local development server:
-
-```bash
-composer serve
-```
-
-The server will run at:
-
-```text
-http://localhost:8173
-```
-
-Install Node dependencies for Tailwind CSS:
+Install Node dependencies:
 
 ```bash
 yarn install
 ```
 
-Run the PHP server, Tailwind watcher, and browser live reload together:
+Configure your environment file:
+
+```bash
+cp .env.example .env
+```
+
+If `.env.example` does not exist yet, create `.env` and set the required app and database values used by `settings/dotenv.php`.
+
+Start dev mode:
 
 ```bash
 yarn dev
 ```
 
-Open the live-reload URL in your browser:
+Open the app in your browser:
 
 ```text
 http://localhost:3000
 ```
 
-The PHP server still runs behind it at:
+`yarn dev` runs the PHP server, Tailwind watcher, and BrowserSync live reload together. The PHP server still runs behind BrowserSync at:
 
 ```text
 http://localhost:8173
