@@ -1,0 +1,38 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# PHP dependencies
+/vendor/
+
+# Node dependencies
+/node_modules/
+
+# Lock files
+composer.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# Generated assets
+/public/assets/css/app.css
+
+# Runtime storage
+/storage/logs/*
+/storage/cache/*
+/storage/sessions/*
+/storage/uploads/*
+!/storage/logs/.gitkeep
+!/storage/cache/.gitkeep
+!/storage/sessions/.gitkeep
+!/storage/uploads/.gitkeep
+
+# Editor and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

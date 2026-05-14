@@ -3,7 +3,13 @@
 require_once __DIR__ . '/constants.php';
 
 // load vendor files
-require_once PACKAGE_DIR . '/vendor/autoload.php';
+$autoloadPath = BASE_DIR . '/vendor/autoload.php';
+
+if (!file_exists($autoloadPath)) {
+    $autoloadPath = PACKAGE_DIR . '/vendor/autoload.php';
+}
+
+require_once $autoloadPath;
 
 // load settings directory's files
 require_once BASE_DIR . '/settings/load.php';
@@ -35,6 +41,7 @@ require_once BASE_DIR . '/app/controllers/home-controller.php';
 // load app directory helpers files from BASE_DIR
 require_once BASE_DIR . '/app/helpers/constants.php';
 require_once BASE_DIR . '/app/helpers/resources.php';
+require_once BASE_DIR . '/app/helpers/template.php';
 
 // load app directory middleware files from BASE_DIR
 require_once BASE_DIR . '/app/middlewares/base-middleware.php'; 

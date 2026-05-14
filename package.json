@@ -1,0 +1,14 @@
+{
+    "name": "php-template",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently --kill-others-on-fail -n tailwind,php -c cyan,green \"yarn tailwind:watch\" \"php -S localhost:8173 server.php\"",
+        "tailwind:build": "tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css",
+        "tailwind:watch": "tailwindcss -i ./resources/css/app.css -o ./public/assets/css/app.css --watch=always"
+    },
+    "devDependencies": {
+        "@tailwindcss/cli": "latest",
+        "concurrently": "latest",
+        "tailwindcss": "latest"
+    }
+}
